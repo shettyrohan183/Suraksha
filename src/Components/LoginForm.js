@@ -15,7 +15,7 @@ function LoginForm() {
       //add your api response here to authneticate the user if it is ok redrecidyt to dashboard
        const isAuthenticated = true;
        if(isAuthenticated){
-        navigate("/dashboard");
+        navigate("/Home");
        }
     
    

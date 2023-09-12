@@ -14,8 +14,8 @@ function App() {
     <div>
       <Navigation />
     <Routes>
-      <Route path='/' Component={Home}/>
-      <Route path='login' Component={LoginPage}/>
+      <Route path='/' Component={LoginPage}/>
+      <Route path='Home' Component={Home}/>
         <Route path='/dashboard' Component={DashBoard}/>   
     </Routes>
     </div>
