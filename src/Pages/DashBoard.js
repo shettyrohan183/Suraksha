@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import 'bootstrap/dist/css/bootstrap.min.css'
 export default function DashBoard() {
     const  [incident, setIncidents]  = useState([
       {
@@ -29,12 +29,12 @@ export default function DashBoard() {
     ]);
     
   return (
-    <div className='container mt-5'>
-      <h2>DashBoard</h2>
-      <div className='row'>
-        <div className='col-md-8'>
+    <div className="container mt-5">
+      <h2 className="mb-4'">DashBoard</h2>
+      <div className="row">
+        <div className="col-md-8">
           <h3>incident List</h3>
-          <ul className='list-groupo'>
+          <ul className='list-group'>
             {incident.map((incident)=>(
               <li key={incident.id} className='list-group-item'>
                 <strong>title:</strong>{incident.title}<br/>

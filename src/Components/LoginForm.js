@@ -1,26 +1,24 @@
 // src/components/LoginForm.js
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-    const history = useHistory();
+    const navigate = useNavigate();
   const handleSubmit = (e) => {
     // e.preventDefault();
     // // Add your authentication logic here
     // onLogin({email,password});
     console.log("on submit clicked");
-    try{
-        //add your api response here to authneticate the user if it is ok redrecidyt to dashboard
+    
+      //add your api response here to authneticate the user if it is ok redrecidyt to dashboard
        const isAuthenticated = true;
        if(isAuthenticated){
-        history.push('/dashboard')
+        navigate("/dashboard");
        }
-    }
-    catch(error){
-        console.log("this is error");
-    }
+    
+   
 
   };
 ;
@@ -31,7 +29,7 @@ function LoginForm() {
           <div className="card">
             <div className="card-header">Login</div>
             <div className="card-body">
-              <form onSubmi={handleSubmit}>
+              <form onSubmit={handleSubmit}>
                 <div className="form-group">
                   <label>Email:</label>
                   <input
