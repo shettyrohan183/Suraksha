@@ -1,11 +1,11 @@
 // src/components/LoginForm.js
 import React, { useState } from 'react';
-import {useHistory} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-    const history = useHistory()
+    const history = useHistory();
   const handleSubmit = (e) => {
     // e.preventDefault();
     // // Add your authentication logic here

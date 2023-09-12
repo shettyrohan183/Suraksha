@@ -4,7 +4,7 @@ import LoginForm from '../Components/LoginForm'
 export default function LoginPage() {
 
   return (
-    <div className='loginpageContainer'>
+    <div className='Container'>
         <LoginForm/>
     </div>
   )
