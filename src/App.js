@@ -12,6 +12,7 @@ import IncidentDetails from './Pages/IncidentDetails';
 import { IncidentProvider } from './IncidentContext'; // Import the IncidentProvider
 import { AuthProvider } from './services/AuthProvider';
 import Analytics from './Pages/Analytics';
+import IncidentFormPage from './Pages/IncidentFormPage';
 function App() {
   return (
 
@@ -26,6 +27,7 @@ function App() {
             <Route path='/incident' Component={IncidentPage} />
             <Route path='/incident/:id' Component={IncidentDetails} />
             <Route path='/Analytics' Component={Analytics} />
+            <Route path='/IncidentForm' Component={IncidentFormPage} />
           </Routes>
         {/* </AuthProvider> */}
       </IncidentProvider>

@@ -1,0 +1,115 @@
+/* IncidentForm.css */
+
+/* Add this CSS to your IncidentForm.css file */
+
+/* Container styling */
+.incident-form-card {
+    background-color: #f0f0f0; /* Set your desired background color */
+    background-image: url('https://th.bing.com/th/id/R.3ed373cde2049b2b3e354d536168bea7?rik=oZxzoZ6bb0BveA&riu=http%3a%2f%2fteamprintmedia.com%2fimages%2fbackground.png&ehk=PXbD3EDrTP8N9%2f%2fxIjtua4LTqNCLZPt23mHUlxIXRyI%3d&risl=&pid=ImgRaw&r=0'); /* Set your background image URL */
+    background-size: cover; /* Adjust background image size as needed */
+    background-repeat: no-repeat;
+    background-position: center center;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    width: 70%;
+    margin: 20px auto;
+    transition: box-shadow 0.3s ease; /* Add a smooth transition on hover */
+  }
+  
+  /* Hover effect */
+  .incident-form-card:hover {
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+    transform: scale(1.02); /* Add a slight scale effect on hover */
+  }
+  
+  /* Input field styling */
+  .incident-form-card input[type="text"],
+  .incident-form-card textarea,
+  .incident-form-card select,
+  .incident-form-card input[type="datetime-local"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Button styling */
+  .incident-form-card button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Add a smooth transition on hover */
+  }
+  
+  .incident-form-card button[type="submit"]:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  .incident-form-card h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .incident-form-card label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  
+  
+ 
+  
+  .incident-form-card form div {
+    margin-bottom: 10px;
+  }
+  
+  /* Style the form row */
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /* Style each form group (Type and Severity select inputs) */
+  .form-group {
+    flex: 1; /* Each form group takes equal width in the row */
+    margin: 0 10px;
+  }
+  
+  /* Style select inputs */
+  select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+
+  
+
+  #AddIncident-btn{
+    justify-content: center;
+    border-radius: 30px;
+    height: fit-content;
+    font-weight: bold; /* Make the button text bold */
+    display: flex;
+    width: 70%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: auto;
+  }
+
+  #AddIncident-btn:hover {
+    background-color: #0056b3;
+  }

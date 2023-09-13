@@ -29,7 +29,7 @@ function Home() {
           <h2 className="card-title">Report Incident</h2>
           <p>If a dog chews shoes whose shoes does he choose?</p>
           <div className="card-actions">
-          <Link to="/incidents" className="btn btn-wide btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg" id='home-btn'>Report</Link>
+          <Link to="/IncidentForm" className="btn btn-wide btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg" id='home-btn'>Report</Link>
           </div>
         </div>
       </div>
