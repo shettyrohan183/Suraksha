@@ -198,7 +198,7 @@ function IncidentForm({ addIncident }) {
             />
           </div>
         </div>
-        <Link  to='/AnotherIncident' className="btn btn-wide btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg" id='AddIncident-btn' type="submit">Add Incident</Link>
+        <button  to='/AnotherIncident' className="btn btn-wide btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg" id='AddIncident-btn' type="submit">Add Incident</button>
       </form>
     </div>
   );
