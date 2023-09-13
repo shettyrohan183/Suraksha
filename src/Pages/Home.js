@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 import '../CSs/Home.css'; // Import your CSS file for styling
 import img1 from '../Logo/Incident-Reporting.jpg';
@@ -8,14 +10,17 @@ import { Link } from 'react-router-dom';
 function Home() {
   return (
     <div>
-    <div className="home-container">
-      <div className="home-content">
-        <h1>Welcome to My App</h1>
-        <p>Your app description goes here.</p>
+      <div className="background-image">
+        {/* Text in the right bottom corner */}
+        <div className="background-text">
+          {/* <h1>Welcome to My App</h1>
+          <p>Your app description goes here.</p> */}
+        </div>
       </div>
-    </div>
-    <div className="home-container" id='home-cards' >
-      {/* Card 1 */}
+
+      {/* Cards Container */}
+      <div className="home-container" id='home-cards'>
+          {/* Card 1 */}
       <div className="card w-96 bg-base-100 shadow-xl" id='home-card'>
         <figure className="px-10 pt-10" id='home-fig'>
           <img src={img1} alt="Shoes" className="rounded-xl" id='home-img'/>
@@ -29,7 +34,6 @@ function Home() {
         </div>
       </div>
 
-      {/* Card 2 */}
       <div className="card w-96 bg-base-100 shadow-xl" id='home-card'>
         {/* ... (Same structure as Card 1 with different content) */}
         <figure className="px-10 pt-10" id='home-fig'>
@@ -44,7 +48,7 @@ function Home() {
         </div>
       </div>
 
-      {/* Card 3 */}
+       {/* Card 3 */}
       <div className="card w-96 bg-base-100 shadow-xl" id='home-card'>
         {/* ... (Same structure as Card 1 with different content) */}
         <figure className="px-10 pt-10" id='home-fig'>
@@ -60,13 +64,10 @@ function Home() {
           </div>
         </div>
       </div>
-
-      
-    </div>
+      </div>
     </div>
   );
 }
 
 export default Home;
 
- 

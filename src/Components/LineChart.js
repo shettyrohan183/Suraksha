@@ -1,6 +1,6 @@
 import React from 'react'
 import { Line } from '@nivo/line';
-
+import  '../CSs/Analytics.css'
 export default function LineChart({incidents}) {
     const currentDate = new Date();
 const currentMonth = currentDate.getMonth() + 1; // Months are zero-based
@@ -32,8 +32,9 @@ const chartData = Object.keys(incidentsByDate).map((date) => ({
   }));
   return (
     <div className="analytics-container">
-      <h2>Incidents This Month</h2>
-      <div className="line-chart-container">
+      <div className="analytics-card">
+        <h2 className="chart-title">Incidents This Month</h2>
+        <div className="line-chart-container">
         <Line
           width={600}
           height={400}
@@ -76,7 +77,9 @@ const chartData = Object.keys(incidentsByDate).map((date) => ({
           pointLabelYOffset={-12}
           useMesh={true}
         />
+        </div>
       </div>
     </div>
+    
   );
 }

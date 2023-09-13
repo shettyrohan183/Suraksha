@@ -1,0 +1,34 @@
+/* Analytics.css */
+.analytics-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Card styling */
+.analytics-card {
+  width: 600px; /* Adjust the width as needed */
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9); /* Adjust opacity as needed */
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow */
+  transition: transform 0.2s; /* Add hover effect */
+  cursor: pointer;
+}
+
+.analytics-card:hover {
+  transform: scale(1.05); /* Enlarge on hover */
+}
+
+.chart-title {
+  font-weight: bold;
+}
+
+#Analytics-con{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+

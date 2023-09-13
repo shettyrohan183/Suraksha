@@ -1,3 +1,20 @@
+.background-image {
+  background-image: url('../Logo/home.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 500px; /* 30% of viewport height */
+  width: 100%;
+  position: relative; /* Enable relative positioning */
+}
+
+.background-text {
+  position: absolute; /* Position the text absolutely within the container */
+  bottom: 10px; /* Adjust the distance from the bottom */
+  right: 10px; /* Adjust the distance from the right */
+  font-weight: bold; /* Make the text bold */
+  color: #fff; /* Text color */
+}
 
 
 #home-cards{

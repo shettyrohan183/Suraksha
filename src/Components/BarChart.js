@@ -16,9 +16,10 @@ export default function BarChart({incidents}) {
       }));
   return (
     <div className="analytics-container">
-    <h2>Incident Types Distribution</h2>
-    <div className="bar-chart-container">
-      <Bar
+      <div className="analytics-card">
+        <h2 className="chart-title">Incidents This Month</h2>
+        <div className="line-chart-container">
+        <Bar
         width={600}
         height={400}
         data={chartData}
@@ -40,7 +41,9 @@ export default function BarChart({incidents}) {
           tickRotation: 0,
         }}
       />
+        </div>
+      </div>
     </div>
-  </div>
+    
   )
 }
