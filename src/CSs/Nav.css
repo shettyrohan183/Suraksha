@@ -1,3 +1,9 @@
-/* .container-nav{
-    max-width: inherit;
-} */
+#navbarid{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}    
+#nav-con{
+margin-right: 10px;
+    margin-left: 10px;
+}

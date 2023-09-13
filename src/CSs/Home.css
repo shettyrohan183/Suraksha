@@ -1,3 +1,5 @@
+
+
 #home-cards{
     display: flex;
     flex-direction: row;
@@ -11,6 +13,7 @@
 /* Card Styles */
 #home-card {
     width: 30%; /* Set the width as needed */
+    background-color: rgba(255, 255, 255, 0.8); 
     background-color: #fff; /* Background color for the card */
     border-radius: 10px; /* Add border-radius for rounded corners */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow (adjust values as needed) */
@@ -28,15 +31,17 @@
 }
   #home-img {
     width: 100%; /* Make the image width 100% of its container (the card) */
-    height: auto; /* Maintain aspect ratio */
+    height: 220px; /* Maintain aspect ratio */
     display: block; /* Remove any potential inline spacing */
     border-radius: 0%;
   }
 
-  .btn{
+  #home-btn{
+    justify-content: center;
     border-radius: 30px;
     height: fit-content;
     font-weight: bold; /* Make the button text bold */
+    display: flex;
 
   }
   

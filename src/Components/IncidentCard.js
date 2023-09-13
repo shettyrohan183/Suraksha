@@ -33,7 +33,7 @@ function IncidentCard({ incidents }) {
                 <h2 className="card-title">
                   {incident.title}
                   <div className="badge badge-secondary badge-outline" id="date-card">
-                    {incident.date}
+                    {incident.timestamp}
                   </div>
                 </h2>
                 <p id="incident_description">{incident.description}</p>

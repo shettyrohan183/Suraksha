@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../CSs/Nav.css'
 import '../App.css';
-import Logo from '../Logo/logo-suraksha.jpeg'
+import Logo from '../Logo/logo-suraksha.jpeg';
 export default function Navigation() {
     const [isNavOpen, setNavOpen] = useState(false);
 
@@ -11,9 +11,9 @@ export default function Navigation() {
     };
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <div className="container">
-                <Link className="navbar-brand" to="/">
+        <nav className="navbar navbar-expand-lg navbar-light bg-light" id="navbarid">
+            <div className="container" id='nav-con'>
+                <Link className="navbar-brand" to="/Home">
                     <img src={Logo} id='nav-logo' alt="" width="50" height="50" />
                 </Link>
                 <button
@@ -38,7 +38,7 @@ export default function Navigation() {
                         </li>
 
                         <li className="nav-item">
-                            <Link className="nav-link" to="/">Abous us</Link>
+                            <Link className="nav-link" to="/Analytics">Analytics</Link>
                         </li>
 
                         {/* Add more navigation links as needed */}
