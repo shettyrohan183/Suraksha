@@ -1,0 +1,42 @@
+#home-cards{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+/* Home.css */
+/* ... (previous styles) */
+
+/* Card Styles */
+#home-card {
+    width: 30%; /* Set the width as needed */
+    background-color: #fff; /* Background color for the card */
+    border-radius: 10px; /* Add border-radius for rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow (adjust values as needed) */
+    opacity: 0.9; /* Set opacity (adjust value between 0 and 1) */
+    transition: transform 0.2s ease-in-out; /* Add a smooth transform transition */
+  }
+  
+  /* Hover Effect: Scale Up on Hover */
+  #home-card:hover {
+    transform: scale(1.05); /* Scale up on hover (adjust value as needed) */
+  }
+
+#home-fig{
+    padding: 0;
+}
+  #home-img {
+    width: 100%; /* Make the image width 100% of its container (the card) */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove any potential inline spacing */
+    border-radius: 0%;
+  }
+
+  .btn{
+    border-radius: 30px;
+    height: fit-content;
+    font-weight: bold; /* Make the button text bold */
+
+  }
+  

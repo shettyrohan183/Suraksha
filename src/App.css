@@ -36,3 +36,33 @@
     transform: rotate(360deg);
   }
 }
+
+#date-card{
+  display: flex;
+}
+
+
+#incident-card{
+  height: 300px;
+}
+
+#incident-container{
+  --bs-gutter-x :0;
+}
+
+#incident_description{
+  white-space: nowrap; /* Prevent text from wrapping to the next line */
+  overflow: hidden; /* Hide the overflowed text */
+  text-overflow: ellipsis;
+}
+#card-badge-readmore{
+  justify-content: space-between;
+}
+
+#nav-logo{
+  border-radius: 50%;
+}
+
+#nav-avatar{
+  border-radius: 50%;
+}
