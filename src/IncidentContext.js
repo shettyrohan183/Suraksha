@@ -22,7 +22,7 @@ export function IncidentProvider({ children }) {
         const response1 = await axios.get('http://localhost:5295/api/Incident');
 
         // Fetch data from your second API endpoint
-        const response2 = await axios.get('http://localhost:5295/api/Incident'); // Replace with the actual URL
+        const response2 = await axios.get('http://localhost:5295/api/MediaAttachment'); // Replace with the actual URL
 
         // Combine the data from both responses
         const combinedData = response1.data.map((incident) => {

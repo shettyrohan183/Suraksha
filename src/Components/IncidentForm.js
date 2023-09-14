@@ -86,8 +86,39 @@ function IncidentForm({ addIncident }) {
     e.preventDefault();
 
     try {
+      console.log("this");
       // Generate a unique ID for the incident based on the current timestamp
-      const uniqueId = new Date().getTime().toString();
+      const generateUniqueId = () => {
+        const timestamp = new Date().getTime();
+        // Ensure the value is within the range of 1 to 100
+        return ((timestamp % 100) + 1);
+      };;
+      
+
+      // Function to generate a unique int32 ID based on the image URL
+const generateAttachmentId = (imageUrl) => {
+  // You can use a hash function like CRC32, or a library like hash.js
+  // Here's an example using a simple hash function for demonstration purposes
+  let hash = 0;
+  if (imageUrl.length === 0) return hash;
+  for (let i = 0; i < imageUrl.length; i++) {
+    const char = imageUrl.charCodeAt(i);
+    hash = (hash << 5) - hash + char;
+    // Convert to 32-bit integer (2's complement)
+    hash = hash | 0;
+  }
+  return (Math.abs(hash) % 100) + 1;
+};
+
+// Example usage:
+const imageUrl = incident.imageUrl;
+const attachmentId = generateAttachmentId(imageUrl);
+const uniqueId = generateUniqueId();
+console.log("Attachment ID:", attachmentId);
+console.log("Unique ID:", uniqueId);
+const originalTimestamp = incident.timestamp;
+const formattedTimestamp = `${originalTimestamp}:00.000Z`;
+console.log(formattedTimestamp);
 
       // Create a new incident object with the generated ID
       const newIncident = {
@@ -98,25 +129,36 @@ function IncidentForm({ addIncident }) {
         incidentDetails: incident.description,
         location: incident.location,
         severity: incident.severity,
-        timeStamp: incident.timestamp,
+        timeStamp: formattedTimestamp,
       };
-
+      console.log(newIncident);
       // Create a new media attachment object with the same incident ID
       const newAttachment = {
-        attachmentId: uniqueId, // Use the same unique ID for attachment
-        incidentId: uniqueId, // Use the same unique ID as the incident
+        attachmentId: attachmentId, // You can set this to 0 or use the same unique ID as the incident
+        incidentId: uniqueId,   // You can set this to 0 or use the same unique ID as the incident
         imageUrl: incident.imageUrl,
+        incident: {
+          incidentId: uniqueId,                    // You can set this to 0 or use the same unique ID as the incident
+          incidentTitle: incident.title,
+          reportedby: incident.reportedBy,
+          incidentType: incident.type,
+          incidentDetails: incident.description,
+          location: incident.location,
+          severity: incident.severity,
+          timeStamp: formattedTimestamp,
+        },
       };
-
+      console.log(newAttachment); 
       // Send the new incident data to the backend
-      const incidentResponse = await sendFormDataToBackend(newIncident, 'Incident');
-
-      if (incidentResponse.status === 200) {
+     
+      const attachmentResponse = await sendFormDataToBackend(newAttachment,"MediaAttachment/AddMediaAttachment");
+      console.log("attach response",attachmentResponse.status);
+      if (attachmentResponse.status === 201) {
         // Data successfully added to the backend for the incident
         // Send the new attachment data to the backend
-        const attachmentResponse = await sendFormDataToBackend(newAttachment, 'MediaAttachment');
-
-        if (attachmentResponse.status === 200) {
+        // const incidentResponse = await sendFormDataToBackend(newIncident, 'Incident/AddIncident');
+        // console.log("incident response",incidentResponse);
+        // if (incidentResponse.status === 200) {
           // Data successfully added to the backend for the attachment
           alert('Incident Added Successfully');
 
@@ -134,26 +176,26 @@ function IncidentForm({ addIncident }) {
 
           // Add the new incident to the incidents array (if needed)
           // addIncident(newIncident);
-        } else {
-          console.error('Failed to add media attachment data to the backend.');
-        }
+        // } else {
+        //   console.error('Failed to add media attachment data to the backend.');
+        // }
       } else {
         console.error('Failed to add incident data to the backend.');
       }
     } catch (error) {
-      console.error('Error sending data to the backend:', error);
+      console.error('Error sending data to the backend:', error.response);
     }
   };
 
   // Function to send form data to the backend
-  const sendFormDataToBackend = async (formData, endpoint) => {
+  const sendFormDataToBackend = async (formData,endpoint) => {
     try {
       // Make a POST request to your backend API endpoint
       const response = await axios.post(`http://localhost:5295/api/${endpoint}`, formData);
 
       return response;
     } catch (error) {
-      console.error(`Error sending data to the ${endpoint} backend:`, error);
+      console.error(`Error sending data to the backend:`, error);
       return null;
     }
   };
@@ -267,10 +309,14 @@ function IncidentForm({ addIncident }) {
           <div className="form-group">
             <label htmlFor="imageUrl">Image Upload:</label>
             <input
-              type="file"
-              accept="image/*"
+              type="text"
+              // text="file"
+              // accept="image/*"
               id="imageUpload"
-              onChange={handleImageUpload}
+              // onChange={handleImageUpload}
+              onChange={(e)=>
+                setIncident({ ...incident, imageUrl: e.target.value })
+              }
               required
             />
           </div>
