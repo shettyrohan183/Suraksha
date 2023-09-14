@@ -4,12 +4,21 @@ import BarChart from '../Components/BarChart';
 import LineChart from '../Components/LineChart';
 import PieChart from '../Components/PieChart';
 import '../CSs/Analytics.css'
+import { Navigate, useNavigate } from 'react-router-dom';
 
 function Analytics() {
     const { incidents } = useIncidentContext();
     
-  return (
+    const login = JSON.parse(localStorage.getItem('user'));
+    const nav = useNavigate();
+    
+    return (
+      
+        
   <div className='analytics-container' id='Analytics-con'>
+    {
+          login == null && <Navigate to="/"/>
+        }
   <div className='chart-container' id='Ana-chart-con'>
     <BarChart incidents={incidents} />
   </div>

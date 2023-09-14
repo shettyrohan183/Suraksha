@@ -2,8 +2,74 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../CSs/IncidentForm.css';
 import { useIncidentContext } from '../IncidentContext';
-
+import axios from 'axios';
 function IncidentForm({ addIncident }) {
+  // const { incidents } = useIncidentContext();
+  // const [incident, setIncident] = useState({
+  //   title: '',
+  //   description: '',
+  //   timestamp: '',
+  //   location: '',
+  //   severity: '',
+  //   reportedBy: '',
+  //   type: '',
+  //   imageUrl: '',
+  // });
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+
+  //   const uniqueId = incidents.length + 1;
+  //   console.log(uniqueId);
+
+  //   // Create a new incident object with the generated ID
+  //   const newIncident = { ...incident, id: uniqueId };
+  //   // addIncident(newIncident);
+  //   // Your code for sending data to the backend
+  //   const response = await sendFormDataToBackend(incident);
+
+  //   if (response.status === 200) {
+  //     // Data successfully updated in the backend
+  //     // Add the new incident to the incidents array
+  //     addIncident(newIncident);
+  //     alert('Incident Added Successfully');
+
+  //     // Clear the form fields
+  //     setIncident({
+  //       title: '',
+  //       description: '',
+  //       timestamp: '',
+  //       location: '',
+  //       severity: '',
+  //       reportedBy: '',
+  //       type: '',
+  //       imageUrl: '',
+  //     });
+  //   } else {
+  //     // Handle errors or show an error message
+  //     console.error('Failed to update data in the backend.');
+  //   }
+  // };
+
+  // // Function to send form data to the backend
+  // const sendFormDataToBackend = async (formData) => {
+  //   try {
+  //     // Make a POST request to your backend API endpoint
+  //     // const response = await fetch('/api/incidents', {
+  //     //   method: 'POST',
+  //     //   headers: {
+  //     //     'Content-Type': 'application/json',
+  //     //   },
+  //     //   body: JSON.stringify(formData),
+  //     // });
+  //     const response = { status: 200, message: 'Data successfully updated.' };
+  //   return response;
+      
+  //   } catch (error) {
+  //     console.error('Error sending data to the backend:', error);
+  //     return null;
+  //   }
+  // };
   const { incidents } = useIncidentContext();
   const [incident, setIncident] = useState({
     title: '',
@@ -19,53 +85,75 @@ function IncidentForm({ addIncident }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const uniqueId = incidents.length + 1;
-    console.log(uniqueId);
+    try {
+      // Generate a unique ID for the incident based on the current timestamp
+      const uniqueId = new Date().getTime().toString();
 
-    // Create a new incident object with the generated ID
-    const newIncident = { ...incident, id: uniqueId };
-    // addIncident(newIncident);
-    // Your code for sending data to the backend
-    const response = await sendFormDataToBackend(incident);
+      // Create a new incident object with the generated ID
+      const newIncident = {
+        incidentId: uniqueId,
+        incidentTitle: incident.title,
+        reportedby: incident.reportedBy,
+        incidentType: incident.type,
+        incidentDetails: incident.description,
+        location: incident.location,
+        severity: incident.severity,
+        timeStamp: incident.timestamp,
+      };
 
-    if (response.status === 200) {
-      // Data successfully updated in the backend
-      // Add the new incident to the incidents array
-      addIncident(newIncident);
+      // Create a new media attachment object with the same incident ID
+      const newAttachment = {
+        attachmentId: uniqueId, // Use the same unique ID for attachment
+        incidentId: uniqueId, // Use the same unique ID as the incident
+        imageUrl: incident.imageUrl,
+      };
 
-      // Clear the form fields
-      setIncident({
-        title: '',
-        description: '',
-        timestamp: '',
-        location: '',
-        severity: '',
-        reportedBy: '',
-        type: '',
-        imageUrl: '',
-      });
-    } else {
-      // Handle errors or show an error message
-      console.error('Failed to update data in the backend.');
+      // Send the new incident data to the backend
+      const incidentResponse = await sendFormDataToBackend(newIncident, 'Incident');
+
+      if (incidentResponse.status === 200) {
+        // Data successfully added to the backend for the incident
+        // Send the new attachment data to the backend
+        const attachmentResponse = await sendFormDataToBackend(newAttachment, 'MediaAttachment');
+
+        if (attachmentResponse.status === 200) {
+          // Data successfully added to the backend for the attachment
+          alert('Incident Added Successfully');
+
+          // Clear the form fields
+          setIncident({
+            title: '',
+            description: '',
+            timestamp: '',
+            location: '',
+            severity: '',
+            reportedBy: '',
+            type: '',
+            imageUrl: '',
+          });
+
+          // Add the new incident to the incidents array (if needed)
+          // addIncident(newIncident);
+        } else {
+          console.error('Failed to add media attachment data to the backend.');
+        }
+      } else {
+        console.error('Failed to add incident data to the backend.');
+      }
+    } catch (error) {
+      console.error('Error sending data to the backend:', error);
     }
   };
 
   // Function to send form data to the backend
-  const sendFormDataToBackend = async (formData) => {
+  const sendFormDataToBackend = async (formData, endpoint) => {
     try {
       // Make a POST request to your backend API endpoint
-      // const response = await fetch('/api/incidents', {
-      //   method: 'POST',
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: JSON.stringify(formData),
-      // });
-      const response = { status: 200, message: 'Data successfully updated.' };
-    return response;
-      
+      const response = await axios.post(`http://localhost:5295/api/${endpoint}`, formData);
+
+      return response;
     } catch (error) {
-      console.error('Error sending data to the backend:', error);
+      console.error(`Error sending data to the ${endpoint} backend:`, error);
       return null;
     }
   };
@@ -150,11 +238,12 @@ function IncidentForm({ addIncident }) {
               <option value="">Select Type</option>
               <option value="Security">Security</option>
               <option value="Network">Network</option>
-              <option value="Infracture">Infracture</option>
+              <option value="Infrastructure">Infrastructure</option>
               <option value="Data">Data</option>
               <option value="Software">Softwar</option>
               <option value="Fire">Fire</option>
               <option value="Safety">Safety</option>
+              <option value="Other">Other</option>
             </select>
           </div>
           <div className="form-group">

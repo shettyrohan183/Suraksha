@@ -1,15 +1,21 @@
 
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../CSs/Home.css'; // Import your CSS file for styling
 import img1 from '../Logo/Incident-Reporting.jpg';
 import img2 from '../Logo/Incident-View.png';
 import img3 from '../Logo/Analytics.png';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 
 function Home() {
+  const login = JSON.parse(localStorage.getItem('user'));
+  const nav = useNavigate();
+  
   return (
     <div>
+      {
+        login == null && <Navigate to="/"/>
+      }
       <div className="background-image">
         {/* Text in the right bottom corner */}
         <div className="background-text">
