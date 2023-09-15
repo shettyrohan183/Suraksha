@@ -121,17 +121,8 @@ const formattedTimestamp = `${originalTimestamp}:00.000Z`;
 console.log(formattedTimestamp);
 
       // Create a new incident object with the generated ID
-      const newIncident = {
-        incidentId: uniqueId,
-        incidentTitle: incident.title,
-        reportedby: incident.reportedBy,
-        incidentType: incident.type,
-        incidentDetails: incident.description,
-        location: incident.location,
-        severity: incident.severity,
-        timeStamp: formattedTimestamp,
-      };
-      console.log(newIncident);
+     
+      
       // Create a new media attachment object with the same incident ID
       const newAttachment = {
         attachmentId: attachmentId, // You can set this to 0 or use the same unique ID as the incident
@@ -175,7 +166,19 @@ console.log(formattedTimestamp);
           });
 
           // Add the new incident to the incidents array (if needed)
-          // addIncident(newIncident);
+          const newIncident = {
+            incidentId: uniqueId,
+            incidentTitle: incident.title,
+            reportedby: incident.reportedBy,
+            incidentType: incident.type,
+            incidentDetails: incident.description,
+            location: incident.location,
+            severity: incident.severity,
+            timeStamp: formattedTimestamp,
+            imageUrl : incident.imageUrl,
+          };
+          addIncident(newIncident);
+          console.log(newIncident);
         // } else {
         //   console.error('Failed to add media attachment data to the backend.');
         // }
@@ -314,6 +317,7 @@ console.log(formattedTimestamp);
               // accept="image/*"
               id="imageUpload"
               // onChange={handleImageUpload}
+              value={incident.imageUrl}
               onChange={(e)=>
                 setIncident({ ...incident, imageUrl: e.target.value })
               }
