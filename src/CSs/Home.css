@@ -1,9 +1,9 @@
 .background-image {
-  background-image: url('../Logo/home.png');
+  /* background-image: url('../Logo/home.png'); */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 500px; /* 30% of viewport height */
+  height: 600px; /* 30% of viewport height */
   width: 100%;
   position: relative; /* Enable relative positioning */
 }

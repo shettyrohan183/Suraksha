@@ -16,6 +16,7 @@ import Analytics from './Pages/Analytics';
 import IncidentFormPage from './Pages/IncidentFormPage';
 import Navigation from './Components/Navigation';
 import AnotherIncident from './Pages/AnotherIncident';
+import Footer from './Pages/Footer';
 // import PrivateRoute from './PrivateRoute'; // Import the PrivateRoute component
 
 
@@ -46,6 +47,7 @@ function App() {
             }
             {/* <Route exact path='/' Component={LoginPage} /> */}
           </Routes>
+          <Footer />
         </AuthProvider>
       </IncidentProvider>
     </div>

@@ -282,7 +282,7 @@ console.log(formattedTimestamp);
               <option value="Network">Network</option>
               <option value="Infrastructure">Infrastructure</option>
               <option value="Data">Data</option>
-              <option value="Software">Softwar</option>
+              <option value="Software">Software</option>
               <option value="Fire">Fire</option>
               <option value="Safety">Safety</option>
               <option value="Other">Other</option>

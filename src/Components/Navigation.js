@@ -4,6 +4,12 @@ import '../CSs/Nav.css'
 import '../App.css';
 import Logo from '../Logo/logo-suraksha.jpeg';
 export default function Navigation() {
+  const backgroundtext={
+    color: 'linear-gradient(to bottom, #ffffff, #f5f5f5);', /* Reddish-yellow color */
+    textshadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',/* Shadow with blur */
+    fontweight: 'bold', /* Make the text bold */
+    // color: 'red', /* Text color */
+  }
     const [isNavOpen, setNavOpen] = useState(false);
 
     const toggleNav = () => {
@@ -28,7 +34,7 @@ export default function Navigation() {
         <nav className="navbar navbar-expand-lg navbar-light bg-light" id="navbarid">
             <div className="container" id='nav-con'>
                 <Link className="navbar-brand" to="/Home">
-                    <img src={Logo} id='nav-logo' alt="" width="50" height="50" />
+                    <img src={Logo} id='nav-logo' alt="" width="80" height="80" />
                 </Link>
                 <button
                     className={`navbar-toggler ${isNavOpen ? '' : 'collapsed'}`}
@@ -54,17 +60,20 @@ export default function Navigation() {
                         <li className="nav-item">
                             <Link className="nav-link" to="/Analytics">Analytics</Link>
                         </li>
-                        {/* <li className="nav-item" >
-                            <button >Logout</button>
-                        </li> */}
+                        
 
                         {/* Add more navigation links as needed */}
                     </ul>
+                    
                 </div>
+                <div className="navbar-text text-center" style={backgroundtext} id='navbartext'>
+          <h1>Welcome to Suraksha</h1>
+          <p>Report an Incident, Be the Change.</p>
+        </div>
 
                  <div className="avatar placeholder " id='nav-avatar' onClick={handleAvatarClick}>
         <div className="  bg-neutral-focus text-neutral-content rounded-full w-12  ">
-          <span>MX</span>
+          <span>AD</span>
         </div>
         
       </div>
