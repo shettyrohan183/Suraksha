@@ -1,17 +1,28 @@
-/* You can include this CSS in your main CSS file or a separate CSS file */
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  flex: 1;
+}
 
 .footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    background-color: #f9f9f9; /* Set the background color */
-    padding: 10px 0; /* Add padding for spacing */
-    text-align: center;
-    font-weight: bold; /* Make the text bold */
-  }
-  
-  
-  
+  align-items: center;
+  justify-content: center;
+  background-color: #f9f9f9;
+  padding: 10px 0;
+  text-align: center;
+  font-weight: bold;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}

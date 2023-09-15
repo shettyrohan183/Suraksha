@@ -3,8 +3,8 @@
 import React,  { useEffect, useState } from 'react';
 import '../CSs/Home.css'; // Import your CSS file for styling
 import img1 from '../Logo/Incident-Reporting.jpg';
-import img2 from '../Logo/Incident-View.png';
-import img3 from '../Logo/Analytics.png';
+import img2 from '../Logo/Incident-View.jpeg';
+import img3 from '../Logo/Analytics.jpeg';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import Carousel from '../Components/Carousel';
 
@@ -31,19 +31,7 @@ function Home() {
       {
         login == null && <Navigate to="/"/>
       }
-      {/* <div
-        className="background-image"
-        style={{
-          backgroundImage: `url(${carouselImages[currentImageIndex]})`,
-        }}
-      >
-        {/* Text in the right bottom corner */}
-        {/* <div className="background-text">
-          <h1>Welcome to Suraksha</h1>
-          <p>Report an incident, be the change.</p>
-        </div>
-      </div> */} 
-
+      
         <div>
           <Carousel images={images}/>
         </div>
